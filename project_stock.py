@@ -4,11 +4,9 @@ import pandas as pd
 
 
 # Stock Price Prediction
-def stockPrice():
-    #st.header(":green[:chart_with_upwards_trend: Stock Prediction :chart_with_upwards_trend:]",divider="green")
-    
+def stockPrice(): 
     # load the model
-    modelOpenPush = pickle.load(open('Stocks\\modelOpenPush.pkl','rb'))
+    modelOpenPush = pickle.load(open('Stocks/modelOpenPush.pkl','rb'))
     modelHodDrop = pickle.load(open('Stocks\\modelHodDrop.pkl','rb'))
     modelEodVolume = pickle.load(open('Stocks\\modelEodVolume.pkl','rb'))
     modelClosedRed = pickle.load(open('Stocks\\modelClosedRed.pkl','rb'))
@@ -40,39 +38,38 @@ def stockPrice():
     finaldf = user_options()
     
     ## Prediction
-    try:
-        predicted_openpush = modelOpenPush.predict(finaldf)
-        predicted_hodtoclose = modelHodDrop.predict(finaldf)       
-        predicted_eodvolume = modelEodVolume.predict(finaldf)
-        predicted_closedred =  modelClosedRed.predict(finaldf)
-        predicted_closedred = ['Yes' if predicted_closedred[0] == 1 else 'No' ]
+    
+    predicted_openpush = modelOpenPush.predict(finaldf)
+    predicted_hodtoclose = modelHodDrop.predict(finaldf)       
+    predicted_eodvolume = modelEodVolume.predict(finaldf)
+    predicted_closedred =  modelClosedRed.predict(finaldf)
+    predicted_closedred = ['Yes' if predicted_closedred[0] == 1 else 'No' ]
 
-        priceOpen = finaldf.open
-        priceHod = priceOpen*(1+predicted_openpush[0]/100)
-        priceClose = priceHod*(1-abs(predicted_hodtoclose[0]/100))
-        pricePattern = pd.DataFrame({
-                'index': [0,1,2],
-                'price': [float(priceOpen),float(priceHod),float(priceClose)]
-            })    
+    priceOpen = finaldf.open
+    priceHod = priceOpen*(1+predicted_openpush[0]/100)
+    priceClose = priceHod*(1-abs(predicted_hodtoclose[0]/100))
+    pricePattern = pd.DataFrame({
+            'index': [0,1,2],
+            'price': [float(priceOpen),float(priceHod),float(priceClose)]
+        })    
 
-        ## Display
-        st.header(":green[:chart_with_upwards_trend: Prediction :chart_with_downwards_trend:]",divider="green")
+    ## Display
+    st.header(":green[:chart_with_upwards_trend: Prediction :chart_with_downwards_trend:]",divider="green")
 
-        with st.container():
-            #st.dataframe(finaldf)
-            if predicted_openpush >0:
-                st.text(f"Open Push : around HOD ${float(priceHod):.2f} ({float(predicted_openpush[0]):.2f}%)")
-                #st.text(f"Close Around : ${float(priceClose):.2f}")
-                st.text(f"HOD to Close : close around  ${float(priceClose):.2f} ({float(predicted_hodtoclose[0]):.2f}%)")
-            else:
-                st.subheader(":red[Open Push : **Most Likely No Push**] :chart_with_downwards_trend:")
+    with st.container():
+        #st.dataframe(finaldf)
+        if predicted_openpush >0:
+            st.text(f"Open Push : around HOD ${float(priceHod):.2f} ({float(predicted_openpush[0]):.2f}%)")
+            #st.text(f"Close Around : ${float(priceClose):.2f}")
+            st.text(f"HOD to Close : close around  ${float(priceClose):.2f} ({float(predicted_hodtoclose[0]):.2f}%)")
+        else:
+            st.subheader(":red[Open Push : **Most Likely No Push**] :chart_with_downwards_trend:")
 
-            st.warning(f"Closed Red : {predicted_closedred[0]}")
-            st.warning(f"EOD Volume : {int(predicted_eodvolume[0]/1000000):,.2f}M")
+        st.warning(f"Closed Red : {predicted_closedred[0]}")
+        st.warning(f"EOD Volume : {int(predicted_eodvolume[0]/1000000):,.2f}M")
 
 
-            st.subheader("Predcted Price Pattern")
-            st.line_chart(pricePattern,y='price', use_container_width= True)
-    except:
-        st.error("Invalid Input")
+        st.subheader("Predcted Price Pattern")
+        st.line_chart(pricePattern,y='price', use_container_width= True)
+    
     st.markdown('---')
