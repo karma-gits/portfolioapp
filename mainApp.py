@@ -16,7 +16,7 @@ with st.container():
     with col1:
         st.image('images/profile-pic.png',width=180)
     with col2:
-        st.markdown("<h1 style='font-size:60px;font-weight:bold;color:white;'>Karma Gurung</h1>",unsafe_allow_html=True)
+        st.markdown("<h1 style='font-size:60px;font-weight:bold;'>Karma Gurung</h1>",unsafe_allow_html=True)
         st.write('___')
         st.write('Data Scientist | Statistical Analysis | Machine Learning | Data Mining/Wrangling SQL | Python')
     ## address social media
@@ -39,60 +39,57 @@ if selected == "About_Me":
                 data=file,
                 file_name="Karma Gurung_Resume.pdf",
                 mime="application/pdf")
-    ###
-    st.success("""
-        Recent Computer Science graduate proficient in Data Science with a strong foundation in statistical modeling,
-        machine learning, and data manipulation. Experienced in Python and scikit-learn, with a focus on building
-        predictive models and extracting insights from complex datasets. Proven ability to communicate findings
-        effectively to both technical and non-technical audiences. Passionate about leveraging data-driven solutions for
-        business growth and informed decision-making.
-        """)
-    
+        
     with st.container():
-        st.header("Technical Skills")
-        st.write("**LANGUAGES:** Utilize Python (Pandas, NumPy, Seaborn) and SQL effectively")
-        st.write("**ANALYTICS/DATA VISUALIZATION:** Proficient in Microsoft Excel, Tableau, Matplotlib, and Plotly")
-        st.write("**DATA TECHNIQUES:** Apply Sklearn (sklearn), TensorFlow, Statistical Modeling, Machine Learning Algorithms,Data Cleaning, Data Manipulation, and Hypothesis Testing")
-        st.write('___')
-        
-        st.header("Experience")
-        st.subheader("**Data Science Fellow | March/2024 – Present**")
-        st.subheader("**Springboard | Remote**")
-    
-        st.subheader(f" [● Built a Safety Gear Detection application](https://github.com/karma-gits/springboard/tree/main/Capstone%20Three)")
-        st.write("""
-                 - Utilized Python, OpenCV, TensorFlow, and YOLO to develop a system that detects and tracks various types of safety gear in construction sites with high accuracy.
-                 - Enhanced safety protocols and reduced risk of accidents by 80% through accurate detection and timely notification.""")
-        
-        st.subheader(f" [● Constructed a Product Recommendation System](https://github.com/karma-gits/springboard/tree/main/capstone%20two)") 
-        st.write("""
-                 -  Used Python, Pandas, Sklearn, and Matplotlib to devise a system that recommends relevant items based on user interactions and historical purchase data.
-                 - Enhanced user experience and engagement.""")
-    
-        st.subheader(f" [● Developed Dynamic Pricing Strategy Model](https://github.com/karma-gits/DataScienceGuidedCapstone)")
-        st.write("""
-                -  Created a model using data-driven techniques in Python, Pandas, and Sklearn to optimize pricing based on competitor analysis.
-                -  Aimed for a +5% revenue increase.""")
-    
-        st.write('___')
-        
-        # Education
-        st.header("Education")
-        st.write("**Data Science Certification**, Springboard, Jun2024")
-        st.write("**BS, Computer Science**, Western Governors University, Dec 2023")
-    
-        st.header("Certifications")
-        st.write("**ITIL Foundation** - PeopleCert - Nov 2023")
-        st.write("**Linux Essentials** - LPI - Oct 2023")
-        st.write("**Python For Everybody** - University of Michigan - Dec 2022")
-        st.write("**Google Data Analytics** - Google Career Certificates - Dec 2022")
+        ###
+        st.success("""
+            Recent Computer Science graduate proficient in Data Science with a strong foundation in statistical modeling,
+            machine learning, and data manipulation. Experienced in Python and scikit-learn, with a focus on building
+            predictive models and extracting insights from complex datasets. Proven ability to communicate findings
+            effectively to both technical and non-technical audiences. Passionate about leveraging data-driven solutions for
+            business growth and informed decision-making.
+            """)
 
-    ### Resume
-    #st.markdown(f"""
-    #<iframe src="data:application/pdf;base64,{pdf_base64}" 
-    #         width="100%" height="600px" frameborder="0" 
-    #         scrolling="auto" allowfullscreen>
-    #</iframe>""", unsafe_allow_html=True)
+        with st.container():
+            st.header("Technical Skills")
+            st.write("**LANGUAGES:** Utilize Python (Pandas, NumPy, Seaborn) and SQL effectively")
+            st.write("**ANALYTICS/DATA VISUALIZATION:** Proficient in Microsoft Excel, Tableau, Matplotlib, and Plotly")
+            st.write("**DATA TECHNIQUES:** Apply Sklearn (sklearn), TensorFlow, Statistical Modeling, Machine Learning Algorithms,Data Cleaning, Data Manipulation, and Hypothesis Testing")
+            st.write('___')
+
+            st.header("Experience")
+            st.subheader("**Data Science Fellow | March/2024 – Present**")
+            st.subheader("**Springboard | Remote**")
+
+            st.subheader(f" [● Built a Safety Gear Detection application](https://github.com/karma-gits/springboard/tree/main/Capstone%20Three)")
+            st.write("""
+                     - Utilized Python, OpenCV, TensorFlow, and YOLO to develop a system that detects and tracks various types of safety gear in construction sites with high accuracy.
+                     - Enhanced safety protocols and reduced risk of accidents by 80% through accurate detection and timely notification.""")
+
+            st.subheader(f" [● Constructed a Product Recommendation System](https://github.com/karma-gits/springboard/tree/main/capstone%20two)") 
+            st.write("""
+                     -  Used Python, Pandas, Sklearn, and Matplotlib to devise a system that recommends relevant items based on user interactions and historical purchase data.
+                     - Enhanced user experience and engagement.""")
+
+            st.subheader(f" [● Developed Dynamic Pricing Strategy Model](https://github.com/karma-gits/DataScienceGuidedCapstone)")
+            st.write("""
+                    -  Created a model using data-driven techniques in Python, Pandas, and Sklearn to optimize pricing based on competitor analysis.
+                    -  Aimed for a +5% revenue increase.""")
+
+            st.write('___')
+
+            # Education
+            st.header("Education")
+            st.write("**Data Science Certification**, Springboard, Jun2024")
+            st.write("**BS, Computer Science**, Western Governors University, Dec 2023")
+
+            st.header("Certifications")
+            st.write("**ITIL Foundation** - PeopleCert - Nov 2023")
+            st.write("**Linux Essentials** - LPI - Oct 2023")
+            st.write("**Python For Everybody** - University of Michigan - Dec 2022")
+            st.write("**Google Data Analytics** - Google Career Certificates - Dec 2022")
+            
+    st.write('___')
 
 # Projecta
 if selected == "Projects":
