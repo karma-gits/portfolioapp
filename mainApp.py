@@ -27,7 +27,6 @@ with st.container():
     selected = option_menu(
         menu_title=None,
         options=["Projects","Tableau","About_Me","Contact"],
-        default_index=2,
         icons=["folder","folder","person","envelope"],
         orientation="horizontal")
 #st.write("___")
@@ -111,7 +110,7 @@ if selected == "Projects":
             st.image('images/stock.png',use_column_width=True)
             st.success("- I developed a machine learning model using Scikit-learn to predict smallcap stock prices and directions.\n- The model was trained on historical data and uses algorithms like Linear Regression, Random Forest Regressor and classification.\n- The outcome shows the potential of machine learning in predicting stock prices and can be applied to day trading strategies called 'Gapup Short', providing valuable insights for smallcap day traders.")
             st.subheader(":gray[ 📈📋 Enter pre-market data to predict]",divider="green")
-            #stockPrice()
+            stockPrice()
     # NYC Housing Price Prediction
     with tab3:
         with st.container(border=True):

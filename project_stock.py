@@ -6,11 +6,14 @@ import pandas as pd
 # Stock Price Prediction
 def stockPrice(): 
     # load the model
-    modelOpenPush = pickle.load(open('Stocks/modelOpenPush.pkl','rb'))
-    modelHodDrop = pickle.load(open('Stocks/modelHodDrop.pkl','rb'))
-    modelEodVolume = pickle.load(open('Stocks/modelEodVolume.pkl','rb'))
-    modelClosedRed = pickle.load(open('Stocks/modelClosedRed.pkl','rb'))
-    
+    @st.cache_data() 
+    def load_models():
+        return [
+            pickle.load(open('Stocks/modelOpenPush.pkl','rb')),
+            pickle.load(open('Stocks/modelHodDrop.pkl','rb')),
+            pickle.load(open('Stocks/modelEodVolume.pkl','rb')),
+            pickle.load(open('Stocks/modelClosedRed.pkl','rb'))
+        ]  
   
     # Create a dropdown menu to select the stock
     allColumns = ['open', 'gap', 'hod', 'low', 'close', 'eodVolume', 'pmVolume', 'floatShares', 'marketCap', 'openPush', 'hodToClose', 'closedRed']
@@ -37,6 +40,7 @@ def stockPrice():
         return pd.DataFrame(user_data, index=[0])
     finaldf = user_options()
     
+    modelOpenPush, modelHodDrop, modelEodVolume, modelClosedRed = load_models()
     ## Prediction
     try:
         predicted_openpush = modelOpenPush.predict(finaldf)
