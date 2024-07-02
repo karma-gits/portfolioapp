@@ -7,9 +7,9 @@ import pandas as pd
 def stockPrice(): 
     # load the model
     modelOpenPush = pickle.load(open('Stocks/modelOpenPush.pkl','rb'))
-    modelHodDrop = pickle.load(open('Stocks\\modelHodDrop.pkl','rb'))
-    modelEodVolume = pickle.load(open('Stocks\\modelEodVolume.pkl','rb'))
-    modelClosedRed = pickle.load(open('Stocks\\modelClosedRed.pkl','rb'))
+    modelHodDrop = pickle.load(open('Stocks/modelHodDrop.pkl','rb'))
+    modelEodVolume = pickle.load(open('Stocks/modelEodVolume.pkl','rb'))
+    modelClosedRed = pickle.load(open('Stocks/modelClosedRed.pkl','rb'))
     
   
     # Create a dropdown menu to select the stock
