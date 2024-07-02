@@ -8,11 +8,10 @@ def stockPrice():
     # load the model
     @st.cache_data() 
     def load_models():
-        return [gdown.download('https://github.com/karma-gits/portfolioapp/blob/main/Stocks/modelOpenPush.pkl', 'modelOpenPush.pkl', quiet=False, fuzzy=False),
-                gdown.download('https://github.com/karma-gits/portfolioapp/blob/main/Stocks/modelHodDrop.pkl', 'modelHodDrop.pkl', quiet=False, fuzzy=False),
-                gdown.download('https://github.com/karma-gits/portfolioapp/blob/main/Stocks/modelEodVolume.pkl', 'modelEodVolume.pkl', quiet=False, fuzzy=False),
-                gdown.download('https://github.com/karma-gits/portfolioapp/blob/main/Stocks/modelClosedRed.pkl', 'modelClosedRed.pkl', quiet=False, fuzzy=False)]
-       
+        return [gdown.download('https://drive.google.com/file/d/1dPjOLBWbObLbbteTWMXgZIHRhvh4W51P/view?usp=sharing', 'modelOpenPush.pkl', quiet=False, fuzzy=True),
+                gdown.download('https://drive.google.com/file/d/1SnzI6e08oaeYAdKmQy7HoTtBRwl8VA0O/view?usp=sharing', 'modelHodDrop.pkl', quiet=False, fuzzy=True),
+                gdown.download('https://drive.google.com/file/d/1VwvaznLuTofoQgindflTuRviKv8SeAyN/view?usp=sharing', 'modelEodVolume.pkl', quiet=False, fuzzy=True),
+                gdown.download('https://drive.google.com/file/d/1QXqhMei10ld337tJCutSVsOEMIPQeUF-/view?usp=sharing', 'modelClosedRed.pkl', quiet=False, fuzzy=True)]
   
     # Create a dropdown menu to select the stock
     allColumns = ['open', 'gap', 'hod', 'low', 'close', 'eodVolume', 'pmVolume', 'floatShares', 'marketCap', 'openPush', 'hodToClose', 'closedRed']
