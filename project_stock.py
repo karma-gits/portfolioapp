@@ -6,12 +6,21 @@ import gdown
 # Stock Price Prediction
 def stockPrice(): 
     # load the model
-    @st.cache_data() 
-    def load_models():
-        return [gdown.download('https://drive.google.com/file/d/1dPjOLBWbObLbbteTWMXgZIHRhvh4W51P/view?usp=sharing', 'modelOpenPush.pkl', quiet=False, fuzzy=True),
-                gdown.download('https://drive.google.com/file/d/1SnzI6e08oaeYAdKmQy7HoTtBRwl8VA0O/view?usp=sharing', 'modelHodDrop.pkl', quiet=False, fuzzy=True),
-                gdown.download('https://drive.google.com/file/d/1VwvaznLuTofoQgindflTuRviKv8SeAyN/view?usp=sharing', 'modelEodVolume.pkl', quiet=False, fuzzy=True),
-                gdown.download('https://drive.google.com/file/d/1QXqhMei10ld337tJCutSVsOEMIPQeUF-/view?usp=sharing', 'modelClosedRed.pkl', quiet=False, fuzzy=True)]
+    @st.cache_data(ttl=86400)  
+    def load_model_open_push():
+        return gdown.download('https://drive.google.com/file/d/1dPjOLBWbObLbbteTWMXgZIHRhvh4W51P/view?usp=sharing', 'modelOpenPush.pkl', quiet=False, fuzzy=True)
+
+    @st.cache_data(ttl=86400)  
+    def load_model_hod_drop():
+        return gdown.download('https://drive.google.com/file/d/1SnzI6e08oaeYAdKmQy7HoTtBRwl8VA0O/view?usp=sharing', 'modelHodDrop.pkl', quiet=False, fuzzy=True)
+
+    @st.cache_data(ttl=86400)  
+    def load_model_eod_volume():
+        return gdown.download('https://drive.google.com/file/d/1VwvaznLuTofoQgindflTuRviKv8SeAyN/view?usp=sharing', 'modelEodVolume.pkl', quiet=False, fuzzy=True)
+
+    @st.cache_data(ttl=86400)  
+    def load_model_closed_red():
+        return gdown.download('https://drive.google.com/file/d/1QXqhMei10ld337tJCutSVsOEMIPQeUF-/view?usp=sharing', 'modelClosedRed.pkl', quiet=False, fuzzy=True)
   
     # Create a dropdown menu to select the stock
     allColumns = ['open', 'gap', 'hod', 'low', 'close', 'eodVolume', 'pmVolume', 'floatShares', 'marketCap', 'openPush', 'hodToClose', 'closedRed']
@@ -36,13 +45,13 @@ def stockPrice():
             'marketCap': marketCap*1000000
         }
         return pd.DataFrame(user_data, index=[0])
+    #user df
     finaldf = user_options()
     
-    modelOpenPush, modelHodDrop, modelEodVolume, modelClosedRed = load_models()
-    modelOpenPush = pickle.load(open(modelOpenPush,'rb'))
-    modelHodDrop = pickle.load(open(modelHodDrop,'rb'))
-    modelEodVolume = pickle.load(open(modelEodVolume,'rb'))
-    modelClosedRed = pickle.load(open(modelClosedRed,'rb'))
+    modelOpenPush = pickle.load(open(load_model_open_push(),'rb'))
+    modelHodDrop = pickle.load(open(load_model_hod_drop(),'rb'))
+    modelEodVolume = pickle.load(open(load_model_eod_volume(),'rb'))
+    modelClosedRed = pickle.load(open(load_model_closed_red(),'rb'))
     
     ## Prediction
     try:
