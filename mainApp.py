@@ -33,7 +33,7 @@ with st.container():
 # About Me
 if selected == "About_Me":
     # Create a button to download the resume
-    with open("images\KarmaGurung.pdf", "rb") as file:
+    with open("images/KarmaGurung.pdf", "rb") as file:
         btn = st.download_button(
                 label="Download Resume",
                 data=file,

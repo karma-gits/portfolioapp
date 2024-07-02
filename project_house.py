@@ -11,7 +11,7 @@ def housePrice():
     #st.markdown("<h1 style='text-align: center; font-size: 50px;'>NYC House Price Prediction</h1>", unsafe_allow_html=True)
 
     # load the model
-    priceModel = pickle.load(open('housePrice\priceModel.pkl','rb'))
+    priceModel = pickle.load(open('housePrice/priceModel.pkl','rb'))
 
     # Create a dropdown menu to select the neighbourhood
 
