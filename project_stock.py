@@ -40,12 +40,15 @@ def stockPrice():
     finaldf = user_options()
     
     ## Prediction
-    
-    predicted_openpush = modelOpenPush.predict(finaldf)
-    predicted_hodtoclose = modelHodDrop.predict(finaldf)       
-    predicted_eodvolume = modelEodVolume.predict(finaldf)
-    predicted_closedred =  modelClosedRed.predict(finaldf)
-    predicted_closedred = ['Yes' if predicted_closedred[0] == 1 else 'No' ]
+    try:
+        predicted_openpush = modelOpenPush.predict(finaldf)
+        predicted_hodtoclose = modelHodDrop.predict(finaldf)       
+        predicted_eodvolume = modelEodVolume.predict(finaldf)
+        predicted_closedred =  modelClosedRed.predict(finaldf)
+        predicted_closedred = ['Yes' if predicted_closedred[0] == 1 else 'No' ]
+    except:
+        print("Invalid Input")
+        
     
     priceOpen = finaldf.open
     priceHod = priceOpen*(1+predicted_openpush[0]/100)
