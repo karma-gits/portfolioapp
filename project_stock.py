@@ -2,8 +2,8 @@ import pickle
 import streamlit as st
 import pandas as pd
 import gdown
-import warnings
-from warnings import ComplexWarning
+import warnings 
+warnings.filterwarnings("ignore")
 
 # Stock Price Prediction
 def stockPrice(): 
