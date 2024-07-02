@@ -8,10 +8,10 @@ def stockPrice():
     #st.header(":green[:chart_with_upwards_trend: Stock Prediction :chart_with_upwards_trend:]",divider="green")
     
     # load the model
-    modelOpenPush = pickle.load(open('Stocks\modelOpenPush.pkl','rb'))
-    modelHodDrop = pickle.load(open('Stocks\modelHodDrop.pkl','rb'))
-    modelEodVolume = pickle.load(open('Stocks\modelEodVolume.pkl','rb'))
-    modelClosedRed = pickle.load(open('Stocks\modelClosedRed.pkl','rb'))
+    modelOpenPush = pickle.load(open('Stocks\\modelOpenPush.pkl','rb'))
+    modelHodDrop = pickle.load(open('Stocks\\modelHodDrop.pkl','rb'))
+    modelEodVolume = pickle.load(open('Stocks\\modelEodVolume.pkl','rb'))
+    modelClosedRed = pickle.load(open('Stocks\\modelClosedRed.pkl','rb'))
     
   
     # Create a dropdown menu to select the stock
