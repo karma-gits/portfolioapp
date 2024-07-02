@@ -1,19 +1,18 @@
 import pickle
 import streamlit as st
 import pandas as pd
-
+import gdown
 
 # Stock Price Prediction
 def stockPrice(): 
     # load the model
     @st.cache_data() 
     def load_models():
-        return [
-            pickle.load(open('Stocks/modelOpenPush.pkl','rb')),
-            pickle.load(open('Stocks/modelHodDrop.pkl','rb')),
-            pickle.load(open('Stocks/modelEodVolume.pkl','rb')),
-            pickle.load(open('Stocks/modelClosedRed.pkl','rb'))
-        ]  
+        return [gdown.download('https://github.com/karma-gits/portfolioapp/blob/main/Stocks/modelOpenPush.pkl', 'modelOpenPush.pkl', quiet=False, fuzzy=True),
+                gdown.download('https://github.com/karma-gits/portfolioapp/blob/main/Stocks/modelHodDrop.pkl', 'modelHodDrop.pkl', quiet=False, fuzzy=True),
+                gdown.download('https://github.com/karma-gits/portfolioapp/blob/main/Stocks/modelEodVolume.pkl', 'modelEodVolume.pkl', quiet=False, fuzzy=True),
+                gdown.download('https://github.com/karma-gits/portfolioapp/blob/main/Stocks/modelClosedRed.pkl', 'modelClosedRed.pkl', quiet=False, fuzzy=True)]
+       
   
     # Create a dropdown menu to select the stock
     allColumns = ['open', 'gap', 'hod', 'low', 'close', 'eodVolume', 'pmVolume', 'floatShares', 'marketCap', 'openPush', 'hodToClose', 'closedRed']
@@ -41,6 +40,11 @@ def stockPrice():
     finaldf = user_options()
     
     modelOpenPush, modelHodDrop, modelEodVolume, modelClosedRed = load_models()
+    modelOpenPush = pickle.load(open(modelOpenPush,'rb'))
+    modelHodDrop = pickle.load(open(modelHodDrop,'rb'))
+    modelEodVolume = pickle.load(open(modelEodVolume,'rb'))
+    modelClosedRed = pickle.load(open(modelClosedRed,'rb'))
+    
     ## Prediction
     try:
         predicted_openpush = modelOpenPush.predict(finaldf)
