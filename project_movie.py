@@ -52,7 +52,7 @@ def recommend():
         #selected movie infos
         poster_path,movie_overview, release_date,vote_average,genres = movie_data(title)
         ## Display info of selected Movie
-        st.header(f":red[You {title}]", divider="red")
+        st.header(f":red[You Selected -\t{title}]", divider="red")
         col1, col2 = st.columns([1/4,3/4])
         with col1:
             st.image(poster_path,use_column_width=True)

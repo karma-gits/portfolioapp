@@ -19,12 +19,12 @@ def stockPrice():
     def user_options():
         col1, col2 = st.columns([1,1])
         with col1:
-            marketCap = st.number_input("Enter Market Cap in Millions", 1.00, 10000.00, 35.00)
-            floatShares = st.number_input("Enter Float Shares in Millions", 0.00, 1000.0, 10.0)
+            marketCap = st.number_input("Enter Market Cap in Millions (<10,000M)", 1.00, 10000.00, 35.00)
+            floatShares = st.number_input("Enter Float Shares in Millions (<1,000M)", 0.10, 1000.0, 10.0)
         with col2:
-            openPrice = st.number_input("Enter Open Price", 1.0, 25.00, 3.50)
-            gap = st.number_input("Enter Gap", 15.00, 100.00, 42.28)
-            volume = st.number_input("Enter Volume", 200000, 10000000, 2154000)
+            openPrice = st.number_input("Enter Open Price (1-25)", 1.0, 25.00, 3.50)
+            gap = st.number_input("Enter Gap %(15-100)", 15.00, 100.00, 42.28)
+            volume = st.number_input("Enter Pre-market Volume", 200000, 10000000, 2154000)
         
             
         user_data = {

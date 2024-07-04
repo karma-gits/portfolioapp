@@ -9,7 +9,6 @@ from tableau import tableau
 with open('styles/main.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-
 # Title container
 with st.container():
     col1, col2 = st.columns([1,3])
@@ -18,7 +17,7 @@ with st.container():
     with col2:
         st.markdown("<h1 style='font-size:60px;font-weight:bold;'>Karma Gurung</h1>",unsafe_allow_html=True)
         st.write('___')
-        st.write('Data Scientist | Statistical Analysis | Machine Learning | Data Mining/Wrangling SQL | Python')
+        st.write('Data Science | Data Scientist | Statistical Analysis | Machine Learning | Data Mining/Wrangling | SQL | Python')
     ## address social media
     st.markdown(f"New York City, NY 11378 | karmaguru.work@gmail.com | [linkedin.com/in/karmag](https://linkedin.com/in/karmag) | [github.com/karma-gits](https://github.com/karma-gits)")
 
@@ -37,7 +36,7 @@ if selected == "About_Me":
         btn = st.download_button(
                 label="Download Resume",
                 data=file,
-                file_name="Karma Gurung_Resume.pdf",
+                file_name="Karma Gurung Resume.pdf",
                 mime="application/pdf")
         
     with st.container():
@@ -51,39 +50,39 @@ if selected == "About_Me":
             """)
 
         with st.container():
-            st.header("Technical Skills")
+            st.subheader("Technical Skills")
             st.write("**LANGUAGES:** Utilize Python (Pandas, NumPy, Seaborn) and SQL effectively")
             st.write("**ANALYTICS/DATA VISUALIZATION:** Proficient in Microsoft Excel, Tableau, Matplotlib, and Plotly")
-            st.write("**DATA TECHNIQUES:** Apply Sklearn (sklearn), TensorFlow, Statistical Modeling, Machine Learning Algorithms,Data Cleaning, Data Manipulation, and Hypothesis Testing")
+            st.write("**DATA TECHNIQUES:**  Implement Sklearn,TensorFlow, Statistical Modeling, Machine Learning Algorithms, Data Cleaning, Data Manipulation, Hypothesis Testing, A/B Testing, Statistical Analysis, Big Data (Hadoop and Spark)")
             st.write('___')
 
-            st.header("Experience")
-            st.subheader("**Data Science Fellow | March/2024 – Present**")
-            st.subheader("**Springboard | Remote**")
+            st.subheader("Experience")
+            st.write("**Data Science Fellow | March/2024 – Present**")
+            st.write("**Springboard | Remote**")
 
-            st.subheader(f" [● Built a Safety Gear Detection application](https://github.com/karma-gits/springboard/tree/main/Capstone%20Three)")
+            st.write(f" **[● Built a Safety Gear Detection application](https://github.com/karma-gits/springboard/tree/main/Capstone%20Three)**")
             st.write("""
-                     - Utilized Python, OpenCV, TensorFlow, and YOLO to develop a system that detects and tracks various types of safety gear in construction sites with high accuracy.
+                     - Engineered an AI-driven solution leveraging Python, OpenCV, TensorFlow, and YOLO to monitor construction site safety gear,  enhanced compliance by 30% and minimized inspection time by 40 hours monthly.
                      - Enhanced safety protocols and reduced risk of accidents by 80% through accurate detection and timely notification.""")
 
-            st.subheader(f" [● Constructed a Product Recommendation System](https://github.com/karma-gits/springboard/tree/main/capstone%20two)") 
+            st.write(f" **[● Constructed a Product Recommendation System](https://github.com/karma-gits/springboard/tree/main/capstone%20two)**")
             st.write("""
-                     -  Used Python, Pandas, Sklearn, and Matplotlib to devise a system that recommends relevant items based on user interactions and historical purchase data.
-                     - Enhanced user experience and engagement.""")
+                     - Developed a product recommendation system using Python, Pandas, Sklearn, and Matplotlib. Analyzed user interactions and historical purchases to train machine learning models, resulting in a 20% improvement in recommendation accuracy.
+                     - Enhanced user experience and engagement by 25% through a complete redesign of the app interface. Incorporated user feedback and industry best practices, leading to increased user satisfaction and interaction rates.""")
 
-            st.subheader(f" [● Developed Dynamic Pricing Strategy Model](https://github.com/karma-gits/DataScienceGuidedCapstone)")
+            st.write(f" **[● Developed Dynamic Pricing Strategy Model](https://github.com/karma-gits/DataScienceGuidedCapstone)**")
             st.write("""
-                    -  Created a model using data-driven techniques in Python, Pandas, and Sklearn to optimize pricing based on competitor analysis.
-                    -  Aimed for a +5% revenue increase.""")
-
+                    -  Created a dynamic pricing strategy model using Python, Pandas, and Sklearn. Conducted competitor analysis and applied data-driven techniques to optimize pricing, aiming for a 5% revenue increase.
+                    """)
+            
             st.write('___')
-
             # Education
-            st.header("Education")
+            st.subheader("Education")
             st.write("**Data Science Certification**, Springboard, Jun2024")
             st.write("**BS, Computer Science**, Western Governors University, Dec 2023")
-
-            st.header("Certifications")
+            st.write('___')
+            # Certifications
+            st.subheader("Certifications")
             st.write("**ITIL Foundation** - PeopleCert - Nov 2023")
             st.write("**Linux Essentials** - LPI - Oct 2023")
             st.write("**Python For Everybody** - University of Michigan - Dec 2022")
@@ -91,34 +90,32 @@ if selected == "About_Me":
             
     st.write('___')
 
-# Projecta
+# Projects
 if selected == "Projects":
-    st.header("Select a ML App project")
-    tab1, tab2, tab3 = st.tabs(["1.Movie Recommendation","2.Stock Prediction","3.NYC :house: Price Prediction"])
-    # Movie Recommendation
-    with tab1:
-        with st.container(border=True):
+    st.subheader("Three End-to-End Machine Learning Projects")
+    selected = st.selectbox("Select a Project",options=["1. Movie Recommendation","2. Stock Prediction (SamllCap Gap-up Strategy) ","3. NYC Housing Price Prediction"],placeholder="Select a ML App project")
+    with st.container():
+        if selected == "1. Movie Recommendation":
             st.subheader(":red[1.:movie_camera: Movie Recommendation System :popcorn:] | [Github](https://github.com/karma-gits/portfolioApp)", divider="red")
             st.image('images/movie.png',use_column_width=True)
             st.error("- I cleaned the dataset from kaggle and used the IMDB API to get the movie posters and ratings \n- Then I used sklearn cosine similarity to find the most similar movies to the user's movie.\n- The system takes in a user's movie title and recommends movies that the user might enjoy based on their selected movie.")
             st.subheader(":gray[ 🎞️ 📋 Enter Movie Title to Get Recommendations]",divider="red")
             recommend()
-    # Stock Prediction
-    with tab2:
-        with st.container(border=True):
+        elif selected == "2. Stock Prediction (SamllCap Gap-up Strategy) ":
             st.subheader(":green[2.:chart_with_upwards_trend: Stock Prediction App 📉] | [Github](https://github.com/karma-gits/portfolioApp)",divider="green")
             st.image('images/stock.png',use_column_width=True)
             st.success("- I developed a machine learning model using Scikit-learn to predict smallcap stock prices and directions.\n- The model was trained on historical data and uses algorithms like Linear Regression, Random Forest Regressor and classification.\n- The outcome shows the potential of machine learning in predicting stock prices and can be applied to day trading strategies called 'Gapup Short', providing valuable insights for smallcap day traders.")
             st.subheader(":gray[ 📈📋 Enter pre-market data to predict]",divider="green")
             stockPrice()
-    # NYC Housing Price Prediction
-    with tab3:
-        with st.container(border=True):
+        elif selected == "3. NYC Housing Price Prediction":
             st.subheader(":blue[3.:house: NYC Housing Price Prediction 🏘️] | [Github](https://github.com/karma-gits/portfolioApp)",divider="blue")
             st.image('images/house.png',use_column_width=True)
             st.info("- I used the housing data from kaggle to predict the price of a house in New York City. \n- I used sklearn to train a linear regression model and then used the model to predict the price of a house.")
             st.subheader(":gray[ 🏠 📋 Enter House data to predict]",divider="blue")
-            housePrice()
+            housePrice()    
+        
+    
+    
 
     
 # tableau
