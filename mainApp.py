@@ -6,6 +6,7 @@ from project_movie import recommend
 from project_stock import stockPrice
 from tableau import tableau
 
+st.set_page_config(page_title="Karma G- Portfolio🕵️🔍📊", page_icon="images/profile-pic.png", layout="wide")
 with open('styles/main.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
@@ -19,18 +20,18 @@ with st.container():
         st.write('___')
         st.write('Data Science | Data Scientist | Statistical Analysis | Machine Learning | Data Mining/Wrangling | SQL | Python')
     ## address social media
-    st.markdown(f"New York City, NY 11378 | karmaguru.work@gmail.com | [linkedin.com/in/karmag](https://linkedin.com/in/karmag) | [github.com/karma-gits](https://github.com/karma-gits)")
+    st.markdown(f"New York City, NY 11378 | karmaguru.work@gmail.com | [linkedin](https://linkedin.com/in/karmag) | [github](https://github.com/karma-gits) | [StockMarketLab-App](https://stockmarketlab.streamlit.app)")
 
 # menu options
 with st.container():
     selected = option_menu(
         menu_title=None,
-        options=["Projects","Tableau","About_Me","Contact"],
-        icons=["folder","folder","person","envelope"],
+        options=["Projects","Tableau","AboutMe","Contact"],
+        icons=["archive","window-fullscreen","file-person","person-lines-fill"],
         orientation="horizontal")
 #st.write("___")
 # About Me
-if selected == "About_Me":
+if selected == "AboutMe":
     # Create a button to download the resume
     with open("images/KarmaGurung.pdf", "rb") as file:
         btn = st.download_button(
@@ -73,6 +74,16 @@ if selected == "About_Me":
             st.write(f" **[● Developed Dynamic Pricing Strategy Model](https://github.com/karma-gits/DataScienceGuidedCapstone)**")
             st.write("""
                     -  Created a dynamic pricing strategy model using Python, Pandas, and Sklearn. Conducted competitor analysis and applied data-driven techniques to optimize pricing, aiming for a 5% revenue increase.
+                    """)
+            
+            # StockMarketLab-Awebappforstockmarketanalysisanddecision-making
+            st.subheader("Personal Project")
+            st.write(f" **[Stock Market Lab - a web app for stock market analysis and decision-making](https://stockmarketlab.streamlit.app)**")
+            st.write("""
+                    - **Portfolio:** Track holdings, allocation, and performance. 
+                    - **News Sentiment Analyzer:** Parse  news articles and analyze sentiment.
+                    - **MonteCarlo:** Run Monte Carlo simulations to estimate the value of a stock.
+                    - **DCF Model:** Calculate the DCF(Discounted Cash Flow) of a stock.
                     """)
             
             st.write('___')

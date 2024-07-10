@@ -76,7 +76,7 @@ def recommend():
     
     # Webpage 
     movies = pickle.load(open('Recommendation/movie_list.pkl','rb'))
-    #similarity = pickle.load(open('Recommendation/similarity.pkl','rb'))
+    #similarity = pickle.load(open('similarity.pkl','rb'))
     similarity = pickle.load(open(load_similarity(),'rb'))
 
 #    # Movie list
