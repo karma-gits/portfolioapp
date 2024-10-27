@@ -43,11 +43,11 @@ if selected == "AboutMe":
     with st.container():
         ###
         st.success("""
-            Recent Computer Science graduate proficient in Data Science with a strong foundation in statistical modeling,
-            machine learning, and data manipulation. Experienced in Python and scikit-learn, with a focus on building
-            predictive models and extracting insights from complex datasets. Proven ability to communicate findings
-            effectively to both technical and non-technical audiences. Passionate about leveraging data-driven solutions for
-            business growth and informed decision-making.
+            Recent Master's degree graduate in Data Analytics with a strong foundation in computer science and data science. 
+            Proficient in statistical modeling, machine learning, and data manipulation, with hands-on experience in Python 
+            and Scikit-Learn for building predictive models and deriving insights from complex datasets. 
+            Excellent communicator, capable of conveying technical concepts to both technical and non-technical audiences. 
+            Dedicated to leveraging data-driven solutions to drive business growth and facilitate informed decision-making.
             """)
 
         with st.container():
@@ -58,7 +58,7 @@ if selected == "AboutMe":
             st.write('___')
 
             st.subheader("Experience")
-            st.write("**Data Science Fellow | March/2024 – Present**")
+            st.write("**Data Science Fellow | Feb/2024 - Jul/2024**")
             st.write("**Springboard | Remote**")
 
             st.write(f" **[● Built a Safety Gear Detection application](https://github.com/karma-gits/springboard/tree/main/Capstone%20Three)**")
@@ -89,11 +89,12 @@ if selected == "AboutMe":
             st.write('___')
             # Education
             st.subheader("Education")
-            st.write("**Data Science Certification**, Springboard, Jun2024")
+            st.write("**MS, Data Analytics**, Western Governors University, Oct 2024")
             st.write("**BS, Computer Science**, Western Governors University, Dec 2023")
             st.write('___')
             # Certifications
             st.subheader("Certifications")
+            st.write("**Data Science Certification** - Springboard - Jun 2024")
             st.write("**ITIL Foundation** - PeopleCert - Nov 2023")
             st.write("**Linux Essentials** - LPI - Oct 2023")
             st.write("**Python For Everybody** - University of Michigan - Dec 2022")
@@ -105,7 +106,7 @@ if selected == "AboutMe":
 if selected == "Projects":
     st.subheader("Three End-to-End Machine Learning Projects")
     selected = st.selectbox("Select a Project",options=["1. Movie Recommendation","2. Stock Prediction (SamllCap Gap-up Strategy) ","3. NYC Housing Price Prediction"],placeholder="Select a ML App project")
-    with st.container():
+    with st.container(border=True):
         if selected == "1. Movie Recommendation":
             st.subheader(":red[1.:movie_camera: Movie Recommendation System :popcorn:] | [Github](https://github.com/karma-gits/portfolioApp)", divider="red")
             st.image('images/movie.png',use_column_width=True)
