@@ -66,8 +66,9 @@ def LSTM_model():
         history = model.fit(X_train, y_train, epochs=50, batch_size=32, verbose=1, callbacks=[early_stopping])
 
         # Log the training history to Streamlit
-        st.write("Training complete. Loss history:")
-        st.write(history.history)
+        st.write("✅ Training complete.👌")
+        with st.expander("View `Loss history` Details",expanded=False):
+            st.write(history.history)
         
         #Plot training loss over epochs
         plt.figure(figsize=(10, 5))
