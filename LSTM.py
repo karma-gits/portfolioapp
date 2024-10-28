@@ -7,6 +7,7 @@ import streamlit as st
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import LSTM, Dense, Dropout
+from keras.callbacks import EarlyStopping
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 def LSTM_model():
@@ -46,7 +47,7 @@ def LSTM_model():
         train_size = int(len(X) * 0.8)
         X_train, y_train = X[:train_size], y[:train_size]
         X_test, y_test = X[train_size:], y[train_size:]
-
+        
         # Build LSTM Model
         model = Sequential()
         model.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1], 1)))
@@ -57,9 +58,26 @@ def LSTM_model():
 
         model.compile(optimizer='adam', loss='mean_squared_error')
 
-        # Fit the model
-        model.fit(X_train, y_train, epochs=100, batch_size=32) 
-        #model.fit(X_train, y_train, epochs=50, batch_size=32)  # Repeat the training process to avoid overfitting
+        # Set up EarlyStopping
+        early_stopping = EarlyStopping(monitor='loss', patience=5, restore_best_weights=True)
+
+        # Fit the model and capture the training history
+        st.write("Starting model training...🧪👩‍🔬🧪")
+        history = model.fit(X_train, y_train, epochs=50, batch_size=32, verbose=1, callbacks=[early_stopping])
+
+        # Log the training history to Streamlit
+        st.write("Training complete. Loss history:")
+        st.write(history.history)
+        
+        #Plot training loss over epochs
+        plt.figure(figsize=(10, 5))
+        plt.plot(history.history['loss'], label='Training Loss')
+        plt.title('Model Loss During Training')
+        plt.ylabel('Loss')
+        plt.xlabel('Epoch')
+        plt.legend()
+        plt.grid()
+        st.pyplot(plt)  # Displaying the plot in Streamlit
 
         # Predict on training and testing data
         train_predict = model.predict(X_train)

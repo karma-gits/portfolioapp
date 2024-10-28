@@ -130,7 +130,19 @@ if selected == "Projects":
 # LSTM
 if selected == "LSTM":
     st.header(":bar_chart: :blue[Deep Learning Project [Demo/Testing]] \n #### :chart_with_upwards_trend: :orange[Testing and still under construction] :chart_with_downwards_trend:",divider='rainbow')
-    st.warning("This project uses a Long Short-Term Memory (LSTM) network to predict stock prices from two years of historical data obtained through the `yfinance` library. Key features include: \n- **Data Retrieval**: Fetches and preprocesses stock price data for user-defined tickers.\n- **LSTM Model Training**: Builds and evaluates an LSTM model, providing metrics like MAE and RMSE. \n- **Future Predictions**: Generates 20-day forecasts with confidence intervals.\n- **Interactive Visualization**: Presents results using Streamlit, enabling users to visualize historical prices and predictions.\n\nThis tool provides valuable insights into stock price trends.")
+    st.info(
+    "This project leverages a Long Short-Term Memory (LSTM) network for predicting stock prices based on two years of historical data obtained through the `yfinance` library. The main components of this tool are outlined below:\n\n"
+    "- **Data Retrieval**: The application fetches and preprocesses stock price data for user-defined ticker symbols, ensuring the dataset is prepared for time series forecasting.\n\n"
+    "- **LSTM Model Training**: \n"
+    "  - **Model Architecture**: The model integrates LSTM layers with dropout regularization to mitigate overfitting while learning the underlying patterns in the data. \n"
+    "  - **Optimizer**: The Adam optimizer is utilized, known for its efficiency and ability to adapt the learning rate during training.\n"
+    "  - **Regularization Techniques**: Dropout layers are added to reduce overfitting, allowing the model to generalize better on unseen data.\n"
+    "  - **Early Stopping**: An early stopping mechanism is implemented to halt training if the model’s performance on validation data deteriorates, preventing overfitting.\n\n"
+    "- **Model Evaluation**: The trained model is assessed using key metrics like Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE), providing insights into its predictive accuracy.\n\n"
+    "- **Future Predictions**: The model generates 20-day stock price forecasts alongside confidence intervals, allowing users to gauge potential market movements.\n\n"
+    "- **Interactive Visualization**: Utilizing Streamlit, the results are presented in an interactive format, offering users the ability to visualize historical prices, training metrics, and future predictions effectively.\n\n"
+    "This tool empowers investors and analysts by providing valuable insights into stock price trends, helping them make informed decisions in the financial market."
+    )
     LSTM_model()         
     
 # tableau
