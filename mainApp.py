@@ -5,8 +5,9 @@ from project_house import housePrice
 from project_movie import recommend
 from project_stock import stockPrice
 from tableau import tableau
+from LSTM import LSTM_model
 
-st.set_page_config(page_title="Karma G- Portfolio🕵️🔍📊", page_icon="images/profile-pic.png", layout="wide")
+st.set_page_config(page_title="Karma - Portfolio🕵️🔍📊", page_icon="images/profile-pic.png", layout="centered")
 with open('styles/main.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
@@ -26,8 +27,8 @@ with st.container():
 with st.container():
     selected = option_menu(
         menu_title=None,
-        options=["Projects","Tableau","AboutMe","Contact"],
-        icons=["archive","window-fullscreen","file-person","person-lines-fill"],
+        options=["Projects","Tableau","AboutMe","Contact","LSTM"],
+        icons=["archive","window-fullscreen","file-person","person-lines-fill","diagram-2-fill"],
         orientation="horizontal")
 #st.write("___")
 # About Me
@@ -125,10 +126,11 @@ if selected == "Projects":
             st.info("- I used the housing data from kaggle to predict the price of a house in New York City. \n- I used sklearn to train a linear regression model and then used the model to predict the price of a house.")
             st.subheader(":gray[ 🏠 📋 Enter House data to predict]",divider="blue")
             housePrice()    
-        
-    
-    
 
+# LSTM
+if selected == "LSTM":
+    st.header(":bar_chart: :blue[Deep Learning Project [Demo/Testing]] \n #### :chart_with_upwards_trend: :orange[Testing and still under construction] :chart_with_downwards_trend:",divider='rainbow')
+    LSTM_model()         
     
 # tableau
 if selected == "Tableau":
