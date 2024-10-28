@@ -59,7 +59,7 @@ def LSTM_model():
 
         # Fit the model
         model.fit(X_train, y_train, epochs=50, batch_size=32) 
-        model.fit(X_train, y_train, epochs=30, batch_size=32)  # Repeat the training process to avoid overfitting
+        model.fit(X_train, y_train, epochs=50, batch_size=32)  # Repeat the training process to avoid overfitting
 
         # Predict on training and testing data
         train_predict = model.predict(X_train)
