@@ -130,6 +130,7 @@ if selected == "Projects":
 # LSTM
 if selected == "LSTM":
     st.header(":bar_chart: :blue[Deep Learning Project [Demo/Testing]] \n #### :chart_with_upwards_trend: :orange[Testing and still under construction] :chart_with_downwards_trend:",divider='rainbow')
+    st.warning("This project uses a Long Short-Term Memory (LSTM) network to predict stock prices from two years of historical data obtained through the `yfinance` library. Key features include: \n- **Data Retrieval**: Fetches and preprocesses stock price data for user-defined tickers.\n- **LSTM Model Training**: Builds and evaluates an LSTM model, providing metrics like MAE and RMSE. \n- **Future Predictions**: Generates 20-day forecasts with confidence intervals.\n- **Interactive Visualization**: Presents results using Streamlit, enabling users to visualize historical prices and predictions.\n\nThis tool provides valuable insights into stock price trends.")
     LSTM_model()         
     
 # tableau
