@@ -105,7 +105,8 @@ if selected == "AboutMe":
 
 # Projects
 if selected == "Projects":
-    st.subheader("Three End-to-End Machine Learning Projects")
+    #st.subheader("3 End-to-End Machine Learning Projects")
+    st.markdown('''<h2 style='text-align: center; color: #81A263;'>📂3 End-to-End Machine Learning Projects</h2>''', unsafe_allow_html=True)
     selected = st.selectbox("Select a Project",options=["1. Movie Recommendation","2. Stock Prediction (SamllCap Gap-up Strategy) ","3. NYC Housing Price Prediction"],placeholder="Select a ML App project")
     with st.container(border=True):
         if selected == "1. Movie Recommendation":
@@ -126,34 +127,38 @@ if selected == "Projects":
             st.info("- I used the housing data from kaggle to predict the price of a house in New York City. \n- I used sklearn to train a linear regression model and then used the model to predict the price of a house.")
             st.subheader(":gray[ 🏠 📋 Enter House data to predict]",divider="blue")
             housePrice()    
-
+        
 # LSTM
 if selected == "LSTM":
-    st.header(":bar_chart: :blue[Deep Learning Project [Demo/Testing]] \n #### :chart_with_upwards_trend: :orange[Testing and still under construction] :chart_with_downwards_trend:",divider='rainbow')
-    st.info(
-    "This project leverages a Long Short-Term Memory (LSTM) network for predicting stock prices based on two years of historical data obtained through the `yfinance` library. The main components of this tool are outlined below:\n\n"
-    "- **Data Retrieval**: The application fetches and preprocesses stock price data for user-defined ticker symbols, ensuring the dataset is prepared for time series forecasting.\n\n"
-    "- **LSTM Model Training**: \n"
-    "  - **Model Architecture**: The model integrates LSTM layers with dropout regularization to mitigate overfitting while learning the underlying patterns in the data. \n"
-    "  - **Optimizer**: The Adam optimizer is utilized, known for its efficiency and ability to adapt the learning rate during training.\n"
-    "  - **Regularization Techniques**: Dropout layers are added to reduce overfitting, allowing the model to generalize better on unseen data.\n"
-    "  - **Early Stopping**: An early stopping mechanism is implemented to halt training if the model’s performance on validation data deteriorates, preventing overfitting.\n\n"
-    "- **Model Evaluation**: The trained model is assessed using key metrics like Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE), providing insights into its predictive accuracy.\n\n"
-    "- **Future Predictions**: The model generates 20-day stock price forecasts alongside confidence intervals, allowing users to gauge potential market movements.\n\n"
-    "- **Interactive Visualization**: Utilizing Streamlit, the results are presented in an interactive format, offering users the ability to visualize historical prices, training metrics, and future predictions effectively.\n\n"
-    "This tool empowers investors and analysts by providing valuable insights into stock price trends, helping them make informed decisions in the financial market."
-    )
-    LSTM_model()         
+    st.header(":bar_chart: :blue[Deep Learning Project [Demo/Testing]] \n ##### :gear: :orange[Still Under Construction] :gear:",divider='rainbow')
+    with st.expander("📈 💨 🚀 About the Project",icon='ℹ️'):
+        st.info(
+        "This project leverages a Long Short-Term Memory (LSTM) network for predicting stock prices based on two years of historical data obtained through the `yfinance` library. The main components of this tool are outlined below:\n\n"
+        "- **Data Retrieval**: The application fetches and preprocesses stock price data for user-defined ticker symbols, ensuring the dataset is prepared for time series forecasting.\n\n"
+        "- **LSTM Model Training**: \n"
+        "  - **Model Architecture**: The model integrates LSTM layers with dropout regularization to mitigate overfitting while learning the underlying patterns in the data. \n"
+        "  - **Optimizer**: The Adam optimizer is utilized, known for its efficiency and ability to adapt the learning rate during training.\n"
+        "  - **Regularization Techniques**: Dropout layers are added to reduce overfitting, allowing the model to generalize better on unseen data.\n"
+        "  - **Early Stopping**: An early stopping mechanism is implemented to halt training if the model’s performance on validation data deteriorates, preventing overfitting.\n\n"
+        "- **Model Evaluation**: The trained model is assessed using key metrics like Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE), providing insights into its predictive accuracy.\n\n"
+        "- **Future Predictions**: The model generates 20-day stock price forecasts alongside confidence intervals, allowing users to gauge potential market movements.\n\n"
+        "- **Interactive Visualization**: Utilizing Streamlit, the results are presented in an interactive format, offering users the ability to visualize historical prices, training metrics, and future predictions effectively.\n\n"
+        "This tool empowers investors and analysts by providing valuable insights into stock price trends, helping them make informed decisions in the financial market."
+        )
+    st.header(":chart_with_downwards_trend: :red[Stock Price Prediction Model] :chart_with_upwards_trend:",divider='rainbow')
+    LSTM_model()
+    
     
 # tableau
 if selected == "Tableau":
-    st.header(":blue[Tableau Projects] :open_file_folder:",divider='blue')
+    st.markdown('''<h2 style='text-align: center; color: #00AFF9;'>📂 5 Tableau Projects</h2><hr style='border: 1px solid #00AFF9;'>''', unsafe_allow_html=True)
+    #st.header(":blue[Tableau Projects] :open_file_folder:",divider='blue')
     tableau()
 
 # Contact
 if selected == "Contact":
-    st.header(":mailbox: Get In Touch!")
-    st.write('___')
+    st.markdown('''<h2 style='text-align: center; color: #81A263;'>📫 Get In Touch!</h2><hr style='border: 1px solid gray;'>''', unsafe_allow_html=True)
+
     
     github_text = """<a href="https://github.com/karma-gits" style="display: inline-block; text-align: center; vertical-align: middle;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" viewBox="0 0 16 16">
@@ -171,21 +176,26 @@ if selected == "Contact":
                                 
     
     with st.container():
-        st.markdown(github_text + "\t.\t" + linkedin_text + "\t.\t" + email_text,unsafe_allow_html=True)
+        st.markdown('''<div style="display: flex; justify-content: center; align-items: center; gap: 20px; background-color: darkgray; padding: 20px; border-radius: 8px;">
+                        ''' + github_text + linkedin_text + email_text + '''
+                    </div>''',unsafe_allow_html=True)
         
-    st.header("#")
-    st.write('___')
+    st.subheader("#")
     
-    st.subheader(":postbox: Contact me...",divider='gray')
-    with st.container():
+    
+    
+    with st.container(border=True):
+        st.markdown('''<h2 style='text-align: center; color: #81A263;'>📮 Contact me...</h2><hr style='border: 1px solid #81A263;'>''', unsafe_allow_html=True)
         contact_form = """
-        <form action="https://formsubmit.co/karmaguru.work@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email"  placeholder="Your Email" required>
-        <input type="social" name="linkedin" placeholder="Your LinkedIn" optional>
-        <textarea name="message" placeholder="Your message here"></textarea>
-        <button type="submit">Send</button>
+        <div style="background-color: black; padding: 20px; border-radius: 8px; text-align: center; color: #81A263;">
+        <form action="https://formsubmit.co/karmaguru.work@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 10px;">
+        <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; border-radius: 4px; border: 1px solid #ccc;">
+        <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; border-radius: 4px; border: 1px solid #ccc;">
+        <input type="text" name="linkedin" placeholder="Your LinkedIn" optional style="padding: 10px; border-radius: 4px; border: 1px solid #ccc;">
+        <textarea name="message" placeholder="Your message here" style="padding: 10px; border-radius: 4px; border: 1px solid #ccc;"></textarea>
+        <button type="submit" style="padding: 10px; border-radius: 4px; border: none; background-color: #81A263; color: white; cursor: pointer;">Send</button>
         </form>
+        </div>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
 
