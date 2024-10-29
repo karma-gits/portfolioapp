@@ -176,7 +176,7 @@ if selected == "Contact":
                                 
     
     with st.container():
-        st.markdown('''<div style="display: flex; justify-content: center; align-items: center; gap: 20px; background-color: darkgray; padding: 20px; border-radius: 8px;">
+        st.markdown('''<div style="display: flex; justify-content: center; align-items: center; gap: 20px; background-color: black; padding: 20px; border-radius: 8px;">
                         ''' + github_text + linkedin_text + email_text + '''
                     </div>''',unsafe_allow_html=True)
         

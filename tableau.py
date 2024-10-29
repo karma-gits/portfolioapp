@@ -2,7 +2,7 @@ import streamlit as st
 
 def tableau():
     # display table of tableau projects    
-    with st.container(height=1000,border=True):
+    with st.container(border=True):
         for project_name, project_info in tableau_projects.items():
             with st.container(border=True):
                 st.markdown(project_info["name"], unsafe_allow_html=True)
