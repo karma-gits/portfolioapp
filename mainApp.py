@@ -27,24 +27,47 @@ with st.container():
 with st.container():
     selected = option_menu(
         menu_title=None,
-        options=["Projects","Tableau","AboutMe","Contact","LSTM"],
-        icons=["archive","window-fullscreen","file-person","person-lines-fill","diagram-2-fill"],
+        options=["Projects","Tableau","AboutMe","LSTM"],
+        icons=["archive","window-fullscreen","file-person","diagram-2-fill"],
         orientation="horizontal")
 #st.write("___")
 # About Me
 if selected == "AboutMe":
-    # Create a button to download the resume
-    with open("images/KarmaGurung.pdf", "rb") as file:
-        btn = st.download_button(
-                label="Download Resume",
-                data=file,
-                file_name="Karma Gurung Resume.pdf",
-                mime="application/pdf")
-        
-    with st.container():
-        ###
+    github_text = """<a href="https://github.com/karma-gits" style="display: inline-block; text-align: center; vertical-align: middle;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 16 16">
+                        <path fill="#365E32" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59c.4.07.55-.17.55-.38c0-.19-.01-.82-.01-1.49c-2.01.37-2.53-.49-2.69-.94c-.09-.23-.48-.94-.82-1.13c-.28-.15-.68-.52-.01-.53c.63-.01 1.08.58 1.23.82c.72 1.21 1.87.87 2.33.66c.07-.52.28-.87.51-1.07c-1.78-.2-3.64-.89-3.64-3.95c0-.87.31-1.59.82-2.15c-.08-.2-.36-1.02.08-2.12c0 0 .67-.21 2.2.82c.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82c.44 1.1.16 1.92.08 2.12c.51.56.82 1.27.82 2.15c0 3.07-1.87 3.75-3.65 3.95c.29.25.54.73.54 1.48c0 1.07-.01 1.93-.01 2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                        </svg>
+                        </a>"""
+    linkedin_text = """<a href="https://www.linkedin.com/in/karmag/" style="display: inline-block; text-align: center; vertical-align: middle;">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 16 16">
+                        <path fill="#365E32" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248c-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586c.173-.431.568-.878 1.232-.878c.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252c-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                        </svg> </a>"""
+    email_text = """<a href="mailto:karmaguru.work@gmail.com" style="display: inline-block; text-align: center; vertical-align: middle;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 16 16">
+                        <path fill="#365E32" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M4 4h8c.143 0 .281.031.409.088L8 9.231L3.591 4.088A.982.982 0 0 1 4 4m-1 7V5l.002-.063l2.932 3.421l-2.9 2.9A.967.967 0 0 1 3 11m9 1H4c-.088 0-.175-.012-.258-.034L6.588 9.12l1.413 1.648L9.414 9.12l2.846 2.846a.967.967 0 0 1-.258.034zm1-1c0 .088-.012.175-.034.258l-2.9-2.9l2.932-3.421L13 5z" />
+                        </svg> </a>"""
+                                
+    with st.container(border=True):
+        st.markdown('''<h3 style='text-align: center; color: #81A263;'>📫 Get In Touch! 📮</h3><hr style='border: 1px solid gray;'>''', unsafe_allow_html=True)
+        st.markdown('''<div style="display: flex; justify-content: center; align-items: center; gap: 20px; padding: 5px; border-radius: 4px;">
+                        ''' + github_text + linkedin_text + email_text + '''
+                    </div>''',unsafe_allow_html=True)
+    
+    # Resume Section
+    with st.container(border=True):
+        # Download Resume button
+        col1, col2, col3 = st.columns([1,1,1], vertical_alignment="center",gap="large")
+        with col2:
+            # Create a button to download the resume
+            with open("images/KarmaGurung.pdf", "rb") as file:
+                btn = st.download_button(
+                        label="Download Resume",
+                        data=file,
+                        file_name="Karma Gurung Resume.pdf",
+                        mime="application/pdf")
+        # Description
         st.success("""
-            Recent Master's degree graduate in Data Analytics with a strong foundation in computer science and data science. 
+            Recent Master's degree graduate in Data Analytics with a strong foundation in **computer science** and **data science**. 
             Proficient in statistical modeling, machine learning, and data manipulation, with hands-on experience in Python 
             and Scikit-Learn for building predictive models and deriving insights from complex datasets. 
             Excellent communicator, capable of conveying technical concepts to both technical and non-technical audiences. 
@@ -155,55 +178,4 @@ if selected == "Tableau":
     #st.header(":blue[Tableau Projects] :open_file_folder:",divider='blue')
     tableau()
 
-# Contact
-if selected == "Contact":
-    st.markdown('''<h2 style='text-align: center; color: #81A263;'>📫 Get In Touch!</h2><hr style='border: 1px solid gray;'>''', unsafe_allow_html=True)
-
-    
-    github_text = """<a href="https://github.com/karma-gits" style="display: inline-block; text-align: center; vertical-align: middle;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" viewBox="0 0 16 16">
-                        <path fill="#365E32" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59c.4.07.55-.17.55-.38c0-.19-.01-.82-.01-1.49c-2.01.37-2.53-.49-2.69-.94c-.09-.23-.48-.94-.82-1.13c-.28-.15-.68-.52-.01-.53c.63-.01 1.08.58 1.23.82c.72 1.21 1.87.87 2.33.66c.07-.52.28-.87.51-1.07c-1.78-.2-3.64-.89-3.64-3.95c0-.87.31-1.59.82-2.15c-.08-.2-.36-1.02.08-2.12c0 0 .67-.21 2.2.82c.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82c.44 1.1.16 1.92.08 2.12c.51.56.82 1.27.82 2.15c0 3.07-1.87 3.75-3.65 3.95c.29.25.54.73.54 1.48c0 1.07-.01 1.93-.01 2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-                        </svg>
-                        </a>"""
-    linkedin_text = """<a href="https://www.linkedin.com/in/karmag/" style="display: inline-block; text-align: center; vertical-align: middle;">
-                       <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" viewBox="0 0 16 16">
-                        <path fill="#365E32" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248c-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586c.173-.431.568-.878 1.232-.878c.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252c-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-                        </svg> </a>"""
-    email_text = """<a href="mailto:karmaguru.work@gmail.com" style="display: inline-block; text-align: center; vertical-align: middle;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" viewBox="0 0 16 16">
-                        <path fill="#365E32" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M4 4h8c.143 0 .281.031.409.088L8 9.231L3.591 4.088A.982.982 0 0 1 4 4m-1 7V5l.002-.063l2.932 3.421l-2.9 2.9A.967.967 0 0 1 3 11m9 1H4c-.088 0-.175-.012-.258-.034L6.588 9.12l1.413 1.648L9.414 9.12l2.846 2.846a.967.967 0 0 1-.258.034zm1-1c0 .088-.012.175-.034.258l-2.9-2.9l2.932-3.421L13 5z" />
-                        </svg> </a>"""
-                                
-    
-    with st.container():
-        st.markdown('''<div style="display: flex; justify-content: center; align-items: center; gap: 20px; background-color: black; padding: 20px; border-radius: 8px;">
-                        ''' + github_text + linkedin_text + email_text + '''
-                    </div>''',unsafe_allow_html=True)
-        
-    st.subheader("#")
-    
-    
-    
-    with st.container(border=True):
-        st.markdown('''<h2 style='text-align: center; color: #81A263;'>📮 Contact me...</h2><hr style='border: 1px solid #81A263;'>''', unsafe_allow_html=True)
-        contact_form = """
-        <div style="background-color: black; padding: 20px; border-radius: 8px; text-align: center; color: #81A263;">
-        <form action="https://formsubmit.co/karmaguru.work@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 10px;">
-        <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; border-radius: 4px; border: 1px solid #ccc;">
-        <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; border-radius: 4px; border: 1px solid #ccc;">
-        <input type="text" name="linkedin" placeholder="Your LinkedIn" optional style="padding: 10px; border-radius: 4px; border: 1px solid #ccc;">
-        <textarea name="message" placeholder="Your message here" style="padding: 10px; border-radius: 4px; border: 1px solid #ccc;"></textarea>
-        <button type="submit" style="padding: 10px; border-radius: 4px; border: none; background-color: #81A263; color: white; cursor: pointer;">Send</button>
-        </form>
-        </div>
-        """
-        st.markdown(contact_form, unsafe_allow_html=True)
-
-    
-    # Use Local CSS File
-    def local_css(file_name):
-        with open(file_name) as f:
-            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-
-    local_css("styles/contact.css")
+# End
