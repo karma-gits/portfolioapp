@@ -55,7 +55,7 @@ def recommend():
         st.header(f":red[You Selected -\t{title}]", divider="red")
         col1, col2 = st.columns([1/4,3/4])
         with col1:
-            st.image(poster_path,use_column_width=True)
+            st.image(poster_path,use_container_width=True)
         with col2:
             st.write("**Title** :",title)
             st.write("**Overview** : ",movie_overview)
@@ -72,7 +72,7 @@ def recommend():
         for i in range(num_columns):
             with cols[i]:
                 st.write(recommended_movie_names[i])
-                st.image(recommended_movie_posters[i],use_column_width=True)
+                st.image(recommended_movie_posters[i],use_container_width=True)
     
     # Webpage 
     movies = pickle.load(open('Recommendation/movie_list.pkl','rb'))

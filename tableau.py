@@ -6,7 +6,7 @@ def tableau():
         for project_name, project_info in tableau_projects.items():
             with st.container(border=True):
                 st.markdown(project_info["name"], unsafe_allow_html=True)
-                st.image(project_info["image"], caption=project_info["caption"], use_column_width=True)
+                st.image(project_info["image"], caption=project_info["caption"], use_container_width=True)
                 st.info(project_info["info"])
 
 # dictionary of tableau projects
